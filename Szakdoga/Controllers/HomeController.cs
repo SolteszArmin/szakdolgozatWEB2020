@@ -7,6 +7,7 @@ using Szakdoga.Models;
 
 namespace Szakdoga.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         readonly ApplicationDbContext _context;

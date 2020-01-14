@@ -202,17 +202,9 @@
     <Compile Include="Migrations\202001141105275_ForeignKeyToHirdetes.Designer.cs">
       <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001141130557_test sql .cs" />
-    <Compile Include="Migrations\202001141130557_test sql .Designer.cs">
-      <DependentUpon>202001141130557_test sql .cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001141226586_AddErtekelesUsername.cs" />
-    <Compile Include="Migrations\202001141226586_AddErtekelesUsername.Designer.cs">
-      <DependentUpon>202001141226586_AddErtekelesUsername.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001141228528_dropfelhasznalo.cs" />
-    <Compile Include="Migrations\202001141228528_dropfelhasznalo.Designer.cs">
-      <DependentUpon>202001141228528_dropfelhasznalo.cs</DependentUpon>
+    <Compile Include="Migrations\202001141525509_adminRole.cs" />
+    <Compile Include="Migrations\202001141525509_adminRole.designer.cs">
+      <DependentUpon>202001141525509_adminRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -410,14 +402,8 @@
     <EmbeddedResource Include="Migrations\202001141105275_ForeignKeyToHirdetes.resx">
       <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141130557_test sql .resx">
-      <DependentUpon>202001141130557_test sql .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141226586_AddErtekelesUsername.resx">
-      <DependentUpon>202001141226586_AddErtekelesUsername.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141228528_dropfelhasznalo.resx">
-      <DependentUpon>202001141228528_dropfelhasznalo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001141525509_adminRole.resx">
+      <DependentUpon>202001141525509_adminRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
