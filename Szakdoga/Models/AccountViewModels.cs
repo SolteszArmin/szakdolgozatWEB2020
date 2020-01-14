@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Szakdoga.Models
@@ -72,13 +73,21 @@ namespace Szakdoga.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Jelszó")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Jelszó Ellenörzése")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name ="Felhasználnév")]
+        public string Username { get; set; }
+        [Required]
+        [Display(Name ="Születésnap")]
+        [DataType(DataType.Date)]
+        public DateTime SzulEv { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -200,11 +200,20 @@
     <Compile Include="Migrations\202001141130557_test sql .Designer.cs">
       <DependentUpon>202001141130557_test sql .cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001141226586_AddErtekelesUsername.cs" />
+    <Compile Include="Migrations\202001141226586_AddErtekelesUsername.Designer.cs">
+      <DependentUpon>202001141226586_AddErtekelesUsername.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001141228528_dropfelhasznalo.cs" />
+    <Compile Include="Migrations\202001141228528_dropfelhasznalo.Designer.cs">
+      <DependentUpon>202001141228528_dropfelhasznalo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Korosztaly.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\Sport.cs" />
     <Compile Include="Models\SportHirdetes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -301,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001141130557_test sql .resx">
       <DependentUpon>202001141130557_test sql .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141226586_AddErtekelesUsername.resx">
+      <DependentUpon>202001141226586_AddErtekelesUsername.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141228528_dropfelhasznalo.resx">
+      <DependentUpon>202001141228528_dropfelhasznalo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
