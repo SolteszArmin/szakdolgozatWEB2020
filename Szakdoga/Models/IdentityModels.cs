@@ -11,7 +11,7 @@ namespace Szakdoga.Models
     public class ApplicationUser : IdentityUser
     {
         public DateTime? BirthDate { get; set; }
-
+        public int Ertekeles { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
