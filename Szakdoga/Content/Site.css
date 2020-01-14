@@ -1,4 +1,6 @@
-﻿
+﻿.body{
+    padding-bottom:15px;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

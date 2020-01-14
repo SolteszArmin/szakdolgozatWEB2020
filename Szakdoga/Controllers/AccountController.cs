@@ -156,10 +156,12 @@ namespace Szakdoga.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    
+
                     var rs = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     var rm = new RoleManager<IdentityRole>(rs);
-                    await rm.CreateAsync(new IdentityRole("User"));
-                    await UserManager.AddToRoleAsync(user.Id, "User");
+                    await rm.CreateAsync(new IdentityRole(Roles.User));
+                    await UserManager.AddToRoleAsync(user.Id, Roles.User);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

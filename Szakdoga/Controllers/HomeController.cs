@@ -18,8 +18,7 @@ namespace Szakdoga.Controllers
         }
         public ActionResult Index()
         {
-            var teszt = _context.Hirdetesek.ToList();
-            return View(teszt);
+            return View();
         }
 
         public ActionResult About()
