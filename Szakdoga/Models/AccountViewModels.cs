@@ -88,6 +88,14 @@ namespace Szakdoga.Models
         [Display(Name ="Születésnap")]
         [DataType(DataType.Date)]
         public DateTime SzulEv { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Vezetéknév")]
+        public string Vezeteknev { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Keresztnév")]
+        public string Keresztnev { get; set; }
     }
 
     public class ResetPasswordViewModel

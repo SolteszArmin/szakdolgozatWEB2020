@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace Szakdoga.Models
 {
@@ -12,6 +13,9 @@ namespace Szakdoga.Models
     {
         public DateTime? BirthDate { get; set; }
         public int Ertekeles { get; set; }
+        public string Vezeteknev { get; set; }
+        public string Keresztnev { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

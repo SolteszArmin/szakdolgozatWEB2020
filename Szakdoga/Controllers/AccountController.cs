@@ -155,7 +155,7 @@ namespace Szakdoga.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv };
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

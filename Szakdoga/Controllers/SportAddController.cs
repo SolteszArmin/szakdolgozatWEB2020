@@ -7,7 +7,7 @@ using Szakdoga.Models;
 
 namespace Szakdoga.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles=Roles.Admin)]
     public class SportAddController : Controller
     {
         readonly ApplicationDbContext _context;
@@ -16,8 +16,8 @@ namespace Szakdoga.Controllers
         // GET: SportAdd
         public ActionResult Index()
         {
-            var sport = _context.Sportok.ToList();
-            return View(sport);
+            var sportok = _context.Sportok.ToList();
+            return View("index",sportok);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
@@ -29,7 +29,7 @@ namespace Szakdoga.Controllers
                 {
                     Sport = sport
                 };
-                return View("index", vm);
+                return View("newSport", vm);
             }
             if (sport.Id==0)
             {
@@ -49,6 +49,12 @@ namespace Szakdoga.Controllers
         public ActionResult newSport()
         {
             return View();
+        }
+
+        public ActionResult felhasznalok() 
+        {
+            var Users = _context.Users.ToList();
+            return View("felhasznalok",Users);
         }
 
 

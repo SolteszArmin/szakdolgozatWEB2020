@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Szakdoga.Models.ApplicationUser>
+@{
+    ViewBag.Title = "felhasznalok";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{int counter = 1; }
+<h2>felhasznalok</h2>
+
+
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Név</th>
+                <th scope="col">Felhasználónév</th>
+                <th scope="col">Email</th>
+                <th scope="col">Születési Dátum</th>
+                <th scope="col">Értékelés</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var f in Model)
+            {
+                string teljesNev = f.Vezeteknev + " " + f.Keresztnev;
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@teljesNev</td>
+                    <td>@f.UserName</td>
+                    <td>@f.Email</td>
+                    <td>@f.BirthDate.ToString().AsDateTime().ToShortDateString()</td>
+                    <td>@f.Ertekeles</td>
+                </tr>
+                counter++;
+            }
+        </tbody>
+    </table>
+</div>
+
