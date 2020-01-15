@@ -17,9 +17,11 @@ namespace Szakdoga.Models
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
         public Sport Sport { get; set; }
+        [Required]
         public int SportoloLetszam { get; set; }
         public string Leiras { get; set; }
         public int SportId { get; set; }
+        [Required]
         public string Korosztaly { get; set; }
 
 
