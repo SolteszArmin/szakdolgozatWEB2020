@@ -7,13 +7,13 @@ namespace Szakdoga.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class adminRole : IMigrationMetadata
+    public sealed partial class user : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adminRole));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(user));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001141525509_adminRole"; }
+            get { return "202001151354307_user"; }
         }
         
         string IMigrationMetadata.Source

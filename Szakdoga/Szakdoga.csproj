@@ -203,10 +203,6 @@
     <Compile Include="Migrations\202001141105275_ForeignKeyToHirdetes.Designer.cs">
       <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001141525509_adminRole.cs" />
-    <Compile Include="Migrations\202001141525509_adminRole.designer.cs">
-      <DependentUpon>202001141525509_adminRole.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202001141719022_sportRequired.cs" />
     <Compile Include="Migrations\202001141719022_sportRequired.designer.cs">
       <DependentUpon>202001141719022_sportRequired.cs</DependentUpon>
@@ -218,6 +214,10 @@
     <Compile Include="Migrations\202001151330453_nevAdd.cs" />
     <Compile Include="Migrations\202001151330453_nevAdd.designer.cs">
       <DependentUpon>202001151330453_nevAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001151354307_user.cs" />
+    <Compile Include="Migrations\202001151354307_user.designer.cs">
+      <DependentUpon>202001151354307_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -419,9 +419,6 @@
     <EmbeddedResource Include="Migrations\202001141105275_ForeignKeyToHirdetes.resx">
       <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141525509_adminRole.resx">
-      <DependentUpon>202001141525509_adminRole.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001141719022_sportRequired.resx">
       <DependentUpon>202001141719022_sportRequired.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001151330453_nevAdd.resx">
       <DependentUpon>202001151330453_nevAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151354307_user.resx">
+      <DependentUpon>202001151354307_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
