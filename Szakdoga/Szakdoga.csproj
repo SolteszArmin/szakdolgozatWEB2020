@@ -384,6 +384,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_navbar.cshtml" />
     <Content Include="Views\SportAdd\index.cshtml" />
+    <Content Include="Views\SportAdd\newSport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

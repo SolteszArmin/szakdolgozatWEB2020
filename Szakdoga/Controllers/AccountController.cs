@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Szakdoga.Models;
 
+
 namespace Szakdoga.Controllers
 {
     [Authorize]
@@ -69,6 +70,8 @@ namespace Szakdoga.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return View(model);

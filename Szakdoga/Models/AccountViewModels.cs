@@ -50,8 +50,8 @@ namespace Szakdoga.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Username")]
+        [DataType(DataType.Text)]
         public string Email { get; set; }
 
         [Required]
