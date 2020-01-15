@@ -1,0 +1,73 @@
+﻿@model Szakdoga.Models.UserViewModel
+@{
+    ViewBag.Title = "felhasznaloModosit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>felhasznaloModosit</h2>
+
+@using (Html.BeginForm("Ujfelhasznalo", "SportAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+    <h4>Create a new account.</h4>
+    <hr />
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.Vezeteknev, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.User.Vezeteknev, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.Keresztnev, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.User.Keresztnev, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.User.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.User.UserName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.BirthDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input class="form-control" type="date" value="2011-08-19" id="SzulEv" name="SzulEv">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.HiddenFor(m => m.User.Id)
+                        @Html.AntiForgeryToken()
+                        <input class="btn btn-primary" type="submit" value="Módosítás">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+

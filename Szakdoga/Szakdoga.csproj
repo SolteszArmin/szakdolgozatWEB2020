@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HirdetesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SportAddController.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Models\Sport.cs" />
     <Compile Include="Models\SportHirdetes.cs" />
     <Compile Include="Models\SportViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -394,9 +396,11 @@
     <Content Include="Views\SportAdd\index.cshtml" />
     <Content Include="Views\SportAdd\newSport.cshtml" />
     <Content Include="Views\SportAdd\felhasznalok.cshtml" />
+    <Content Include="Views\SportAdd\felhasznaloModosit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Hirdetes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

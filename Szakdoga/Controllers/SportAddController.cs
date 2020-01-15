@@ -20,7 +20,6 @@ namespace Szakdoga.Controllers
             return View("index", sportok);
         }
         [ValidateAntiForgeryToken]
-        [HttpPost]
         public ActionResult ujSport(Sport sport)
         {
             
@@ -64,7 +63,6 @@ namespace Szakdoga.Controllers
             };
             return View("newSport", vm);
         }
-
         public ActionResult Delete(int id)
         {
             if (id == 0)
@@ -77,6 +75,56 @@ namespace Szakdoga.Controllers
             _context.Sportok.Remove(letezoSport);
             _context.SaveChanges();
             return RedirectToAction("index");
+        }
+
+
+        [ValidateAntiForgeryToken]
+        public ActionResult Ujfelhasznalo(ApplicationUser user) 
+        {
+            if (user.Id == null)
+            {
+                _context.Users.Add(user);
+            }
+            else
+            {
+                var letezoUser = _context.Users.Single(u => u.Id == user.Id);
+                letezoUser.Vezeteknev = user.Vezeteknev;
+                letezoUser.Keresztnev = user.Keresztnev;
+                letezoUser.Email = user.Email;
+                letezoUser.UserName = user.UserName;
+                letezoUser.BirthDate = user.BirthDate;
+
+            }
+            _context.SaveChanges();
+            return RedirectToAction("felhasznalok");
+        }
+        public ActionResult DeleteUser(string id)
+        {
+            if (id==null)
+            {
+                return HttpNotFound();
+            }
+
+            var letezoUser = _context.Users.Single(u => u.Id == id);
+
+            _context.Users.Remove(letezoUser);
+            _context.SaveChanges();
+            return RedirectToAction("felhasznalok");
+        }
+
+        public ActionResult FelhaszaloEdit(string id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var letezoUser = _context.Users.Find(id);
+            var vm = new UserViewModel()
+            {
+                User = letezoUser
+            };
+            return View("felhasznaloModosit", vm);
         }
 
     }
