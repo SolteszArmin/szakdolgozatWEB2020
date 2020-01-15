@@ -3,23 +3,30 @@
     ViewBag.Title = "index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div>
+@{int counter = 1; }
+<div class="container">
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Sportág</th>
                 <th scope="col">Sport Neve</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var f in Model)
             {
-                <tr>
-                    <th scope="row">@f.Id</th>
-                    <td>@f.Nev</td>
-                    <td>@f.Sportag</td>
-                </tr>
+                
+            <tr>
+                <th style="width:10%;" scope="row">@counter</th>
+                <td style="width:35%;">@f.Sportag</td>
+                <td style="width:35%;">@f.Nev</td>
+                <td style="width:10%;">@Html.ActionLink("Módosítás", "Edit", "SportAdd", new { id = f.Id }, new { @class = "btn btn-primary" })</td>
+                <td style="width:10%;">@Html.ActionLink("Törlés", "Delete", "SportAdd", new { id = f.Id }, new { @class = "btn btn-danger" })</td>
+            </tr>
+                counter++;
             }
 
         </tbody>

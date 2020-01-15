@@ -7,7 +7,7 @@ using Szakdoga.Models;
 
 namespace Szakdoga.Controllers
 {
-    [Authorize(Roles=Roles.Admin)]
+    [Authorize(Roles = Roles.Admin)]
     public class SportAddController : Controller
     {
         readonly ApplicationDbContext _context;
@@ -17,21 +17,14 @@ namespace Szakdoga.Controllers
         public ActionResult Index()
         {
             var sportok = _context.Sportok.ToList();
-            return View("index",sportok);
+            return View("index", sportok);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult ujSport(Sport sport) 
-        { 
-            if(!ModelState.IsValid)
-            {
-                var vm = new SportViewModel
-                {
-                    Sport = sport
-                };
-                return View("newSport", vm);
-            }
-            if (sport.Id==0)
+        public ActionResult ujSport(Sport sport)
+        {
+            
+            if (sport.Id == 0)
             {
                 _context.Sportok.Add(sport);
             }
@@ -40,7 +33,7 @@ namespace Szakdoga.Controllers
                 var letezoSport = _context.Sportok.Single(u => u.Id == sport.Id);
                 letezoSport.Nev = sport.Nev;
                 letezoSport.Sportag = sport.Sportag;
-                    
+
             }
             _context.SaveChanges();
             return RedirectToAction("index");
@@ -51,12 +44,42 @@ namespace Szakdoga.Controllers
             return View();
         }
 
-        public ActionResult felhasznalok() 
+        public ActionResult felhasznalok()
         {
             var Users = _context.Users.ToList();
-            return View("felhasznalok",Users);
+            return View("felhasznalok", Users);
         }
 
+        public ActionResult Edit(int id)
+        {
+
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+            var letezoSport = _context.Sportok.Single(u => u.Id == id);
+            var vm = new SportViewModel()
+            {
+                Sport = letezoSport
+            };
+            return View("newSport", vm);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+
+            var letezoSport = _context.Sportok.Single(u => u.Id == id);
+
+            _context.Sportok.Remove(letezoSport);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
 
     }
+
+
 }
