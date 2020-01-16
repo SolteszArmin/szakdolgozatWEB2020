@@ -8,15 +8,17 @@
 {
 
 
-    
+
     <h4>Sport hozzáadása</h4>
     <hr />
-    <div class="form-group">
-        @Html.LabelFor(m => m.Sport.Sportag, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Sport.Sportag, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Sport.Sportag)
-        </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Sportág</label>
+        <select id="sportag" name="sportag" class="form-control">
+            @foreach (var s in Model.sportagLista)
+            {
+                <option value="@s.Id">@s.SportagNev</option>
+            }
+        </select>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Sport.Nev, new { @class = "col-md-2 control-label" })

@@ -7,13 +7,13 @@ namespace Szakdoga.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class sportRequired : IMigrationMetadata
+    public sealed partial class restart : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sportRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(restart));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001141719022_sportRequired"; }
+            get { return "202001161423568_restart"; }
         }
         
         string IMigrationMetadata.Source

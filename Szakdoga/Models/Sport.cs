@@ -13,9 +13,8 @@ namespace Szakdoga.Models
         [Required]
         [Display(Name ="Sport Neve")]
         public string Nev { get; set; }
-        [Required]
-        [Display(Name = "Sportág")]
-        public string Sportag { get; set; }
+        public Sportag sportag { get; set; }
+        public int sportagId { get; set; }
 
     }
 }

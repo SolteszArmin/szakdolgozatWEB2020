@@ -188,57 +188,19 @@
     <Compile Include="Migrations\202001111559045_users.Designer.cs">
       <DependentUpon>202001111559045_users.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001111646562_AddSports.cs" />
-    <Compile Include="Migrations\202001111646562_AddSports.Designer.cs">
-      <DependentUpon>202001111646562_AddSports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111720014_AddSportHirdetes.cs" />
-    <Compile Include="Migrations\202001111720014_AddSportHirdetes.Designer.cs">
-      <DependentUpon>202001111720014_AddSportHirdetes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001140946195_datetime.cs" />
-    <Compile Include="Migrations\202001140946195_datetime.Designer.cs">
-      <DependentUpon>202001140946195_datetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001141105275_ForeignKeyToHirdetes.cs" />
-    <Compile Include="Migrations\202001141105275_ForeignKeyToHirdetes.Designer.cs">
-      <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001141719022_sportRequired.cs" />
-    <Compile Include="Migrations\202001141719022_sportRequired.designer.cs">
-      <DependentUpon>202001141719022_sportRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151301557_teljesNev.cs" />
-    <Compile Include="Migrations\202001151301557_teljesNev.designer.cs">
-      <DependentUpon>202001151301557_teljesNev.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151330453_nevAdd.cs" />
-    <Compile Include="Migrations\202001151330453_nevAdd.designer.cs">
-      <DependentUpon>202001151330453_nevAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151354307_user.cs" />
-    <Compile Include="Migrations\202001151354307_user.designer.cs">
-      <DependentUpon>202001151354307_user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151727413_hirdetesModositas.cs" />
-    <Compile Include="Migrations\202001151727413_hirdetesModositas.designer.cs">
-      <DependentUpon>202001151727413_hirdetesModositas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001160958247_ProfilePicture.cs" />
-    <Compile Include="Migrations\202001160958247_ProfilePicture.designer.cs">
-      <DependentUpon>202001160958247_ProfilePicture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001161158202_test.cs" />
-    <Compile Include="Migrations\202001161158202_test.designer.cs">
-      <DependentUpon>202001161158202_test.cs</DependentUpon>
+    <Compile Include="Migrations\202001161423568_restart.cs" />
+    <Compile Include="Migrations\202001161423568_restart.designer.cs">
+      <DependentUpon>202001161423568_restart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HirdetesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Korosztaly.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\Sport.cs" />
+    <Compile Include="Models\Sportag.cs" />
     <Compile Include="Models\SportHirdetes.cs" />
     <Compile Include="Models\SportViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -410,7 +372,10 @@
     <Content Include="Views\SportAdd\newSport.cshtml" />
     <Content Include="Views\SportAdd\felhasznalok.cshtml" />
     <Content Include="Views\SportAdd\felhasznaloModosit.cshtml" />
-    <Content Include="Views\Hirdetes\index.cshtml" />
+    <Content Include="Views\Hirdetes\Index.cshtml" />
+    <Content Include="Views\Hirdetes\Hirdeteseim.cshtml" />
+    <Content Include="Views\Hirdetes\UjHirdetes.cshtml" />
+    <Content Include="Views\Shared\_SideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -424,38 +389,8 @@
     <EmbeddedResource Include="Migrations\202001111559045_users.resx">
       <DependentUpon>202001111559045_users.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111646562_AddSports.resx">
-      <DependentUpon>202001111646562_AddSports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111720014_AddSportHirdetes.resx">
-      <DependentUpon>202001111720014_AddSportHirdetes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001140946195_datetime.resx">
-      <DependentUpon>202001140946195_datetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141105275_ForeignKeyToHirdetes.resx">
-      <DependentUpon>202001141105275_ForeignKeyToHirdetes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001141719022_sportRequired.resx">
-      <DependentUpon>202001141719022_sportRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151301557_teljesNev.resx">
-      <DependentUpon>202001151301557_teljesNev.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151330453_nevAdd.resx">
-      <DependentUpon>202001151330453_nevAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151354307_user.resx">
-      <DependentUpon>202001151354307_user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151727413_hirdetesModositas.resx">
-      <DependentUpon>202001151727413_hirdetesModositas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001160958247_ProfilePicture.resx">
-      <DependentUpon>202001160958247_ProfilePicture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001161158202_test.resx">
-      <DependentUpon>202001161158202_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001161423568_restart.resx">
+      <DependentUpon>202001161423568_restart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

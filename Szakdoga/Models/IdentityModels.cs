@@ -33,6 +33,7 @@ namespace Szakdoga.Models
     {
         public DbSet<Sport> Sportok { get; set; }
         public DbSet<SportHirdetes> Hirdetesek { get; set; }
+        public DbSet<Sportag> Sportagak { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

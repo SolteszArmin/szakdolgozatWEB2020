@@ -1,0 +1,52 @@
+﻿@model Szakdoga.Models.HirdetesViewModel
+@{
+    ViewBag.Title = "UjHirdetes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Sport hozzáadása</h4>
+@using (Html.BeginForm("ujSport", "SportAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.SportHirdetes.Sport.Sportag, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SportHirdetes.Sport.Sportag, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SportHirdetes.Sport.Sportag)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.HiddenFor(m => m.SportHirdetes.UserId)
+            @Html.AntiForgeryToken()
+            <input class="btn btn-primary" type="submit" value="Hozzáadás">
+        </div>
+    </div>
+}

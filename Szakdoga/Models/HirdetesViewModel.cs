@@ -5,9 +5,8 @@ using System.Web;
 
 namespace Szakdoga.Models
 {
-    public class SportViewModel
+    public class HirdetesViewModel
     {
-        public Sport Sport { get; set; }
-        public List<Sportag> sportagLista { get; set; }
+        public SportHirdetes SportHirdetes { get; set; }
     }
 }

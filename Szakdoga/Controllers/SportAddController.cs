@@ -22,7 +22,7 @@ namespace Szakdoga.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ujSport(Sport sport)
         {
-            
+
             if (sport.Id == 0)
             {
                 _context.Sportok.Add(sport);
@@ -31,7 +31,6 @@ namespace Szakdoga.Controllers
             {
                 var letezoSport = _context.Sportok.Single(u => u.Id == sport.Id);
                 letezoSport.Nev = sport.Nev;
-                letezoSport.Sportag = sport.Sportag;
 
             }
             _context.SaveChanges();
@@ -40,7 +39,11 @@ namespace Szakdoga.Controllers
 
         public ActionResult newSport()
         {
-            return View();
+            var sportLista = _context.Sportagak.ToList();
+
+            SportViewModel model = new SportViewModel();
+            model.sportagLista = sportLista;
+            return View(model);
         }
 
         public ActionResult felhasznalok()
@@ -79,7 +82,7 @@ namespace Szakdoga.Controllers
 
 
         [ValidateAntiForgeryToken]
-        public ActionResult Ujfelhasznalo(ApplicationUser user) 
+        public ActionResult Ujfelhasznalo(ApplicationUser user)
         {
             if (user.Id == null)
             {
@@ -100,7 +103,7 @@ namespace Szakdoga.Controllers
         }
         public ActionResult DeleteUser(string id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return HttpNotFound();
             }
