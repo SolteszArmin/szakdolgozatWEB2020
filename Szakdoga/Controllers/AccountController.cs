@@ -151,11 +151,19 @@ namespace Szakdoga.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind(Exclude = "ProfilePicture")]RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev};
+                
+                HttpPostedFileBase Profile = Request.Files["ProfilePicture"];
+
+                byte[] image = new byte[Profile.ContentLength];
+                Profile.InputStream.Read(image, 0, Convert.ToInt32(Profile.ContentLength));
+
+
+
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev,ProfilePicture=image};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

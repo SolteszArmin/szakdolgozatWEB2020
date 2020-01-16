@@ -349,6 +349,7 @@ namespace Szakdoga.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult UploadPicture(HttpPostedFileBase Profile)
         {
+
             // get EF Database (maybe different way in your applicaiton)
             var db = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
 

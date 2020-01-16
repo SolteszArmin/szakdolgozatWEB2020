@@ -12,10 +12,11 @@ namespace Szakdoga.Models
     public class ApplicationUser : IdentityUser
     {
         public DateTime? BirthDate { get; set; }
-        public int Ertekeles { get; set; }
+        public int Ertekeles { get; set; } = 0;
         public string Vezeteknev { get; set; }
         public string Keresztnev { get; set; }
         public byte[] ProfilePicture { get; set; }
+
 
 
 

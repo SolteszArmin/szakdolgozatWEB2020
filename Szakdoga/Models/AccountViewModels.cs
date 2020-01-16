@@ -96,6 +96,8 @@ namespace Szakdoga.Models
         [DataType(DataType.Text)]
         [Display(Name = "Keresztnév")]
         public string Keresztnev { get; set; }
+        [Display(Name ="Porfilkép")]
+        public byte[] ProfilePicture { get; set; }
     }
 
     public class ResetPasswordViewModel
