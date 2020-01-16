@@ -28,6 +28,24 @@
             @Model.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
         </dd>
+            @(Html.BeginForm("UploadPicture", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <legend>Photo</legend>
+                    <div class="editor-label">
+                        <label for="profile">FileName:</label>
+                    </div>
+                    <div class="editor-field">
+                        <input name="Profile" id="profile" type="file" />
+                    </div>
+                    <p>
+                        <input type="submit" value="Create" />
+                    </p>
+                </fieldset>
+            }
+
+
         @*
             Phone Numbers can used as a second factor of verification in a two-factor authentication system.
              

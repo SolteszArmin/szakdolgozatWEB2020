@@ -333,7 +333,42 @@ namespace Szakdoga.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        public FileContentResult Photo(string userId)
+        {
+            // get EF Database (maybe different way in your applicaiton)
+            var db = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+
+            // find the user. I am skipping validations and other checks.
+            var user = db.Users.Where(x => x.Id == userId).FirstOrDefault();
+
+            return new FileContentResult(user.ProfilePicture, "image/jpeg");
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadPicture(HttpPostedFileBase Profile)
+        {
+            // get EF Database (maybe different way in your applicaiton)
+            var db = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+
+            // find the user. I am skipping validations and other checks.
+            var userid = User.Identity.GetUserId();
+            var user = db.Users.Where(x => x.Id == userid).FirstOrDefault();
+
+            // convert image stream to byte array
+            byte[] image = new byte[Profile.ContentLength];
+            Profile.InputStream.Read(image, 0, Convert.ToInt32(Profile.ContentLength));
+
+            user.ProfilePicture = image;
+
+            // save changes to database
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 

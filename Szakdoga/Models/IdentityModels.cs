@@ -15,6 +15,8 @@ namespace Szakdoga.Models
         public int Ertekeles { get; set; }
         public string Vezeteknev { get; set; }
         public string Keresztnev { get; set; }
+        public byte[] ProfilePicture { get; set; }
+
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

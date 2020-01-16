@@ -224,6 +224,10 @@
     <Compile Include="Migrations\202001151727413_hirdetesModositas.designer.cs">
       <DependentUpon>202001151727413_hirdetesModositas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001160958247_ProfilePicture.cs" />
+    <Compile Include="Migrations\202001160958247_ProfilePicture.designer.cs">
+      <DependentUpon>202001160958247_ProfilePicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -441,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001151727413_hirdetesModositas.resx">
       <DependentUpon>202001151727413_hirdetesModositas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001160958247_ProfilePicture.resx">
+      <DependentUpon>202001160958247_ProfilePicture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
