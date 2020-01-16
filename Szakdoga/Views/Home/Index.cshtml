@@ -9,7 +9,13 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
+@foreach (var f in Model)
+{
+    <text>@f.User.Email</text>
 
+    <text>@f.Sport.Nev</text>
+
+}
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>

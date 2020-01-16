@@ -10,19 +10,35 @@ namespace Szakdoga.Models
 {
     public class SportHirdetes
     {
+        [Column(Order = 0)]
         public int Id { get; set; }
-        [Key]
+        
+        [Required]
+        [Column(Order = 1)]
+        public int SportoloLetszam { get; set; }
+        [Column(Order = 2)]
+        public string Leiras { get; set; }
+        [Required]
+        [Column(Order = 3)]
+        public string Korosztaly { get; set; }
+
+
+        [Key, Column(Order = 4)]
+        public int sportId { get; set; }
+
+        [ForeignKey("sportId")]
+        public virtual Sport Sport { get; set; }
+
+
+        [Key,Column(Order =5)]
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
-        public Sport Sport { get; set; }
-        [Required]
-        public int SportoloLetszam { get; set; }
-        public string Leiras { get; set; }
-        public int SportId { get; set; }
-        [Required]
-        public string Korosztaly { get; set; }
+
+
+
+
 
 
 

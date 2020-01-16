@@ -7,13 +7,13 @@ namespace Szakdoga.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class restart : IMigrationMetadata
+    public sealed partial class reset : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(restart));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(reset));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001161423568_restart"; }
+            get { return "202001161612373_reset"; }
         }
         
         string IMigrationMetadata.Source

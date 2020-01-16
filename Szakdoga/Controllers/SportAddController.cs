@@ -31,7 +31,7 @@ namespace Szakdoga.Controllers
             {
                 var letezoSport = _context.Sportok.Single(u => u.Id == sport.Id);
                 letezoSport.Nev = sport.Nev;
-                letezoSport.sportagId = sport.sportagId;
+                //letezoSport.sportagId = sport.sportagId;
 
             }
             _context.SaveChanges();

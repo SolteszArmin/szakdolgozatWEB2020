@@ -188,9 +188,21 @@
     <Compile Include="Migrations\202001111559045_users.Designer.cs">
       <DependentUpon>202001111559045_users.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001161423568_restart.cs" />
-    <Compile Include="Migrations\202001161423568_restart.designer.cs">
-      <DependentUpon>202001161423568_restart.cs</DependentUpon>
+    <Compile Include="Migrations\202001161612373_reset.cs" />
+    <Compile Include="Migrations\202001161612373_reset.designer.cs">
+      <DependentUpon>202001161612373_reset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001161613474_sportForeignKEy.cs" />
+    <Compile Include="Migrations\202001161613474_sportForeignKEy.designer.cs">
+      <DependentUpon>202001161613474_sportForeignKEy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001161617133_hirdetesForeignKey.cs" />
+    <Compile Include="Migrations\202001161617133_hirdetesForeignKey.designer.cs">
+      <DependentUpon>202001161617133_hirdetesForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001161621175_asd.cs" />
+    <Compile Include="Migrations\202001161621175_asd.designer.cs">
+      <DependentUpon>202001161621175_asd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -389,8 +401,17 @@
     <EmbeddedResource Include="Migrations\202001111559045_users.resx">
       <DependentUpon>202001111559045_users.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001161423568_restart.resx">
-      <DependentUpon>202001161423568_restart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001161612373_reset.resx">
+      <DependentUpon>202001161612373_reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161613474_sportForeignKEy.resx">
+      <DependentUpon>202001161613474_sportForeignKEy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161617133_hirdetesForeignKey.resx">
+      <DependentUpon>202001161617133_hirdetesForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161621175_asd.resx">
+      <DependentUpon>202001161621175_asd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

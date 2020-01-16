@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class restart : DbMigration
+    public partial class reset : DbMigration
     {
         public override void Up()
         {
@@ -11,30 +11,12 @@
                 "dbo.SportHirdetes",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         SportoloLetszam = c.Int(nullable: false),
                         Leiras = c.String(),
-                        SportId = c.Int(nullable: false),
                         Korosztaly = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.Sports", t => t.SportId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId)
-                .Index(t => t.SportId);
-            
-            CreateTable(
-                "dbo.Sports",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nev = c.String(nullable: false),
-                        sportagId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Sportags", t => t.sportagId, cascadeDelete: true)
-                .Index(t => t.sportagId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Sportags",
@@ -42,6 +24,15 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         SportagNev = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Sports",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nev = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -54,19 +45,13 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.SportHirdetes", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.SportHirdetes", "SportId", "dbo.Sports");
-            DropForeignKey("dbo.Sports", "sportagId", "dbo.Sportags");
-            DropIndex("dbo.Sports", new[] { "sportagId" });
-            DropIndex("dbo.SportHirdetes", new[] { "SportId" });
-            DropIndex("dbo.SportHirdetes", new[] { "UserId" });
             DropColumn("dbo.AspNetUsers", "ProfilePicture");
             DropColumn("dbo.AspNetUsers", "Keresztnev");
             DropColumn("dbo.AspNetUsers", "Vezeteknev");
             DropColumn("dbo.AspNetUsers", "Ertekeles");
             DropColumn("dbo.AspNetUsers", "BirthDate");
-            DropTable("dbo.Sportags");
             DropTable("dbo.Sports");
+            DropTable("dbo.Sportags");
             DropTable("dbo.SportHirdetes");
         }
     }
