@@ -9,7 +9,7 @@ namespace Szakdoga.Models
 {
     public class Sportag
     {
-        [Column(Order = 0)]
+        [Key,Column(Order = 0)]
         public int Id { get; set; }
         [Required]
         [Display(Name = "Sportág")]

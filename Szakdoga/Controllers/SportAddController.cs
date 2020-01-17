@@ -31,7 +31,7 @@ namespace Szakdoga.Controllers
             {
                 var letezoSport = _context.Sportok.Single(u => u.Id == sport.Id);
                 letezoSport.Nev = sport.Nev;
-                //letezoSport.sportagId = sport.sportagId;
+                letezoSport.sportagId = sport.sportagId;
 
             }
             _context.SaveChanges();
@@ -61,9 +61,12 @@ namespace Szakdoga.Controllers
                 return HttpNotFound();
             }
             var letezoSport = _context.Sportok.Single(u => u.Id == id);
+            var sportLista = _context.Sportagak.ToList();
             var vm = new SportViewModel()
             {
-                Sport = letezoSport
+                Sport = letezoSport,
+                sportagLista=sportLista
+                
             };
             return View("newSport", vm);
         }

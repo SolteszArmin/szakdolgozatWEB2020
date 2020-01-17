@@ -13,7 +13,7 @@ namespace Szakdoga.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202001161612373_reset"; }
+            get { return "202001161708155_reset"; }
         }
         
         string IMigrationMetadata.Source

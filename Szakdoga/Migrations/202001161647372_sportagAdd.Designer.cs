@@ -7,13 +7,13 @@ namespace Szakdoga.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class hirdetesForeignKey : IMigrationMetadata
+    public sealed partial class sportagAdd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(hirdetesForeignKey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(sportagAdd));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001161617133_hirdetesForeignKey"; }
+            get { return "202001161647372_sportagAdd"; }
         }
         
         string IMigrationMetadata.Source

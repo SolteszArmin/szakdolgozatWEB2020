@@ -10,7 +10,7 @@ namespace Szakdoga.Models
 {
     public class SportHirdetes
     {
-        [Column(Order = 0)]
+        [Key,Column(Order = 0)]
         public int Id { get; set; }
         
         [Required]
@@ -23,17 +23,15 @@ namespace Szakdoga.Models
         public string Korosztaly { get; set; }
 
 
-        [Key, Column(Order = 4)]
+        [ForeignKey("Sport"), Column(Order = 4)]
         public int sportId { get; set; }
 
-        [ForeignKey("sportId")]
+        
         public virtual Sport Sport { get; set; }
 
 
-        [Key,Column(Order =5)]
+        [ForeignKey("User"), Column(Order =5)]
         public string UserId { get; set; }
-
-        [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
 
 
