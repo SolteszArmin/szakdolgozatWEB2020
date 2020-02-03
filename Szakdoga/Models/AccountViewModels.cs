@@ -98,6 +98,9 @@ namespace Szakdoga.Models
         public string Keresztnev { get; set; }
         [Display(Name ="Porfilkép")]
         public byte[] ProfilePicture { get; set; }
+        [Required]
+        [Display(Name = "Város")]
+        public string Varos { get; set; }
     }
 
     public class ResetPasswordViewModel

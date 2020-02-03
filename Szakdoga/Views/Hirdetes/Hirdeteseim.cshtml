@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Szakdoga.Models.SportHirdetes>
-@{ 
+@using Microsoft.AspNet.Identity;
+@{
     ViewBag.Title = "Hirdeteseim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,10 +10,34 @@
 }
 @foreach (var i in Model)
 {
-    <text>
-       @i.Sport.Nev
-    </text>
+    string teljesNev = i.User.Vezeteknev + " " + i.User.Keresztnev;
+    <div class="blog-card">
+        <div class="meta">
+            <div class="photo" style="background-image: url(@Url.Action("Photo", "Manage", new { UserId = User.Identity.GetUserId() }))"></div>
+            <ul class="details">
+                <li class="author"><a href="#">@teljesNev</a></li>
+                <li class="date">@DateTime.Parse(i.User.BirthDate.ToString()).ToShortDateString()</li>
+                <li class="tags">
+                    <ul>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Code</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="description">
+            <h1>Learning to Code</h1>
+            <h2>Opening a door to the future</h2>
+            <p> @i.Leiras</p>
+            <p class="read-more">
+                <a href="#">Read More</a>
+            </p>
+        </div>
+    </div>
 }
+
 
 
 

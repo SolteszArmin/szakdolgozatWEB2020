@@ -163,7 +163,7 @@ namespace Szakdoga.Controllers
 
 
 
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev,ProfilePicture=image};
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev,ProfilePicture=image,Varos=model.Varos};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
