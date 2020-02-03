@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Szakdoga.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Szakdoga.Controllers
 {
@@ -18,7 +19,7 @@ namespace Szakdoga.Controllers
         public ActionResult Index()
         {
             var Hirdetesek = _context.Hirdetesek.ToList();
-            return View("Index",Hirdetesek);
+            return View("Index", Hirdetesek);
         }
         public ActionResult UjHirdetes()
         {
@@ -30,12 +31,13 @@ namespace Szakdoga.Controllers
             model.Sport = sportLista;
             model.KrosztalyLista = korosztalyLista;
 
-            return View("ujHirdetes",model);
+            return View("ujHirdetes", model);
         }
-        public ActionResult HirdetesAdd(SportHirdetes sportHirdetes) 
+        public ActionResult HirdetesAdd(SportHirdetes sportHirdetes)
         {
             if (sportHirdetes.Id == 0)
             {
+                sportHirdetes.UserId = User.Identity.GetUserId();
                 _context.Hirdetesek.Add(sportHirdetes);
             }
             else
@@ -47,6 +49,37 @@ namespace Szakdoga.Controllers
                 letezoHirdetes.Korosztaly = sportHirdetes.Korosztaly;
                 letezoHirdetes.Leiras = sportHirdetes.Leiras;
             }
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public ActionResult Edit(int id)
+        {
+
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+            var letezoHirdetes = _context.Hirdetesek.Single(u => u.Id == id);
+            var sportLista = _context.Sportok.ToList();
+            Korosztaly korosztaly = new Korosztaly();
+            var vm = new HirdetesAddViewModel()
+            {
+                sportHirdetes = letezoHirdetes,
+                Sport = sportLista,
+                KrosztalyLista = korosztaly.korosztalyLista
+            };
+            return View("UjHirdetes", vm);
+        }
+        public ActionResult Delete(int id)
+        {
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+
+            var letezoHirdetes = _context.Hirdetesek.Single(u => u.Id == id);
+
+            _context.Hirdetesek.Remove(letezoHirdetes);
             _context.SaveChanges();
             return RedirectToAction("index");
         }

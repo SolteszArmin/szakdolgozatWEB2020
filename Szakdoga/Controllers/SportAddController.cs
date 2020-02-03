@@ -59,6 +59,7 @@ namespace Szakdoga.Controllers
             {
                 return HttpNotFound();
             }
+
             var letezoSport = _context.Sportok.Single(u => u.Id == id);
             var sportLista = _context.Sportagak.ToList();
             var vm = new SportViewModel()

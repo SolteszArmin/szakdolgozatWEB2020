@@ -196,6 +196,10 @@
     <Compile Include="Migrations\202002031122264_HirdetesNev.designer.cs">
       <DependentUpon>202002031122264_HirdetesNev.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002031219028_hirdetesLathatosag.cs" />
+    <Compile Include="Migrations\202002031219028_hirdetesLathatosag.designer.cs">
+      <DependentUpon>202002031219028_hirdetesLathatosag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HirdetesAddViewModel.cs" />
@@ -399,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002031122264_HirdetesNev.resx">
       <DependentUpon>202002031122264_HirdetesNev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002031219028_hirdetesLathatosag.resx">
+      <DependentUpon>202002031219028_hirdetesLathatosag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

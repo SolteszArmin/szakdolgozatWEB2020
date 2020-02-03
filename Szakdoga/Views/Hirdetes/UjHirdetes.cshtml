@@ -5,7 +5,7 @@
 }
 
 <h4>Sport hozzáadása</h4>
-@using (Html.BeginForm("UjHirdetes", "HirdetesAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("HirdetesAdd", "Hirdetes", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 
 
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group col-md-4">
         <label for="inputState">Létszám</label>
-        <select id="sportHirdetes.Korosztaly" name="sportHirdetes.Korosztaly" class="form-control">
+        <select id="sportHirdetes.SportoloLetszam" name="sportHirdetes.SportoloLetszam" class="form-control">
             @for (int i = 1; i <= 6; i++)
             {
                 <option value="@i">@i</option>

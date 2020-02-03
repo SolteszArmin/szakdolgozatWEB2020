@@ -39,6 +39,9 @@ namespace Szakdoga.Models
         [Display(Name = "Hirdetés Címe")]
         public string Nev { get; set; }
 
+        [Column(Order = 7)]
+        public byte Lathato { get; set; } = 1;
+
 
 
 
