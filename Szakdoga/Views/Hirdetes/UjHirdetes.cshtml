@@ -1,50 +1,60 @@
-﻿@model Szakdoga.Models.HirdetesViewModel
+﻿@model Szakdoga.Models.HirdetesAddViewModel
 @{
     ViewBag.Title = "UjHirdetes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h4>Sport hozzáadása</h4>
-@using (Html.BeginForm("ujSport", "SportAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("UjHirdetes", "HirdetesAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 
 
 
+    <h4>Sport hozzáadása</h4>
     <hr />
     <div class="form-group">
-        @Html.LabelFor(m => m.SportHirdetes.Sport.Sportag, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.sportHirdetes.Nev, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.SportHirdetes.Sport.Sportag, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SportHirdetes.Sport.Sportag)
+            @Html.TextBoxFor(m => m.sportHirdetes.Nev, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.sportHirdetes.Nev)
         </div>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="sportHirdetes.sportId">Sport</label>
+        <select id="sportHirdetes.sportId" name="sportHirdetes.sportId" class="form-control">
+            @foreach (var s in Model.Sport)
+            {
+                <option value="@s.Id">@s.Nev</option>
+            }
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Kereset Korosztály</label>
+        <select id="sportHirdetes.Korosztaly" name="sportHirdetes.Korosztaly" class="form-control">
+            @foreach (var s in Model.KrosztalyLista)
+            {
+                <option value="@s">@s</option>
+            }
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Létszám</label>
+        <select id="sportHirdetes.Korosztaly" name="sportHirdetes.Korosztaly" class="form-control">
+            @for (int i = 1; i <= 6; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
-        </div>
+        <label for="sportHirdetes.Leiras">Leírás</label>
+        <textarea class="form-control" id="sportHirdetes.Leiras" name="sportHirdetes.Leiras" rows="3"></textarea>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.SportHirdetes.SportId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.SportHirdetes.SportId, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SportHirdetes.SportId)
-        </div>
-    </div>
-
 
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            @Html.HiddenFor(m => m.SportHirdetes.UserId)
+            @Html.HiddenFor(m => m.sportHirdetes.Id)
             @Html.AntiForgeryToken()
             <input class="btn btn-primary" type="submit" value="Hozzáadás">
         </div>

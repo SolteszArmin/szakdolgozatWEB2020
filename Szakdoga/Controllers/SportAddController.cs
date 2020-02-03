@@ -32,7 +32,6 @@ namespace Szakdoga.Controllers
                 var letezoSport = _context.Sportok.Single(u => u.Id == sport.Id);
                 letezoSport.Nev = sport.Nev;
                 letezoSport.sportagId = sport.sportagId;
-
             }
             _context.SaveChanges();
             return RedirectToAction("index");
@@ -65,8 +64,8 @@ namespace Szakdoga.Controllers
             var vm = new SportViewModel()
             {
                 Sport = letezoSport,
-                sportagLista=sportLista
-                
+                sportagLista = sportLista
+
             };
             return View("newSport", vm);
         }

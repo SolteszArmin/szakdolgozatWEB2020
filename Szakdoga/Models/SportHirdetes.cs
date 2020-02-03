@@ -12,7 +12,7 @@ namespace Szakdoga.Models
     {
         [Key,Column(Order = 0)]
         public int Id { get; set; }
-        
+
         [Required]
         [Column(Order = 1)]
         public int SportoloLetszam { get; set; }
@@ -33,6 +33,11 @@ namespace Szakdoga.Models
         [ForeignKey("User"), Column(Order =5)]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
+
+        [Required]
+        [Column(Order = 6)]
+        [Display(Name = "Hirdetés Címe")]
+        public string Nev { get; set; }
 
 
 

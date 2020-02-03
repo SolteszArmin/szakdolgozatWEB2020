@@ -192,8 +192,13 @@
     <Compile Include="Migrations\202001161708155_reset.designer.cs">
       <DependentUpon>202001161708155_reset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002031122264_HirdetesNev.cs" />
+    <Compile Include="Migrations\202002031122264_HirdetesNev.designer.cs">
+      <DependentUpon>202002031122264_HirdetesNev.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HirdetesAddViewModel.cs" />
     <Compile Include="Models\HirdetesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Korosztaly.cs" />
@@ -391,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001161708155_reset.resx">
       <DependentUpon>202001161708155_reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002031122264_HirdetesNev.resx">
+      <DependentUpon>202002031122264_HirdetesNev.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
