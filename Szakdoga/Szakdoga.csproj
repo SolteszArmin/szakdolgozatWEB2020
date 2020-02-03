@@ -203,6 +203,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HirdetesAddViewModel.cs" />
+    <Compile Include="Models\HirdetesListViewModel.cs" />
     <Compile Include="Models\HirdetesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Korosztaly.cs" />

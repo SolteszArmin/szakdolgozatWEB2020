@@ -33,6 +33,12 @@ namespace Szakdoga.Controllers
 
             return View("ujHirdetes", model);
         }
+        public ActionResult Hirdeteseim() 
+        {
+            string currentUserId = User.Identity.GetUserId();
+            var sajathirdetesek = _context.Hirdetesek.Where(u => u.UserId == currentUserId).ToList();
+            return View("Hirdeteseim", sajathirdetesek);
+        }
         public ActionResult HirdetesAdd(SportHirdetes sportHirdetes)
         {
             if (sportHirdetes.Id == 0)
