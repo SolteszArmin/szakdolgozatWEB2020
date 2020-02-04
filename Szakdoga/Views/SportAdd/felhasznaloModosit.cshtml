@@ -50,6 +50,19 @@
                         <input class="form-control" type="date" value="2011-08-19" id="SzulEv" name="SzulEv">
                     </div>
                 </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.Varos, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.User.Varos, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.User.Leiras, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.User.Leiras, new { @class = "form-control" })
+                    </div>
+                </div>
             </div>
         </div>
 

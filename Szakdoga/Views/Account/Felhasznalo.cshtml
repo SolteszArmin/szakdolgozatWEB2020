@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Szakdoga.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Felhasznalo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,8 +15,11 @@
         <div class="card-body">
             <h4 class="card-title">@teljesNev</h4>
 
-            <p class="card-text">Some example text.</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
+            <p class="card-text">@i.Leiras</p>
+            @if (User.Identity.GetUserId()==i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
+            {
+                @Html.ActionLink("Módosítás", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+            }
         </div>
     </div>
 }

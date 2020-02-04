@@ -47,8 +47,10 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="sportHirdetes.Leiras">Leírás</label>
-        <textarea class="form-control" id="sportHirdetes.Leiras" name="sportHirdetes.Leiras" rows="3"></textarea>
+        @Html.LabelFor(m => m.sportHirdetes.Leiras, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.sportHirdetes.Leiras, new { @class = "form-control" })
+        </div>
     </div>
 
 

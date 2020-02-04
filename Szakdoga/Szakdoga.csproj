@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202002031411440_varosAdd.designer.cs">
       <DependentUpon>202002031411440_varosAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002041402416_leiras.cs" />
+    <Compile Include="Migrations\202002041402416_leiras.designer.cs">
+      <DependentUpon>202002041402416_leiras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HirdetesAddViewModel.cs" />
@@ -415,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002031411440_varosAdd.resx">
       <DependentUpon>202002031411440_varosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002041402416_leiras.resx">
+      <DependentUpon>202002041402416_leiras.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

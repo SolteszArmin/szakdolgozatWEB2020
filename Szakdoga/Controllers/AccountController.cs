@@ -511,9 +511,9 @@ namespace Szakdoga.Controllers
         }
         #endregion
 
-        public ActionResult Felhasznalo()
+        public ActionResult Felhasznalo(string id)
         {
-            string userid = User.Identity.GetUserId();
+            string userid = id;
             var asd = _context.Users.Where(u => u.Id == userid);
             return View("Felhasznalo", asd);
         }
