@@ -17,6 +17,7 @@ namespace Szakdoga.Models
         public string Keresztnev { get; set; }
         public byte[] ProfilePicture { get; set; }
         public string Varos { get; set; }
+        public string Leiras { get; set; }
 
 
 

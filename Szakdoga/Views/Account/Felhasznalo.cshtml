@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Szakdoga.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Felhasznalo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile</h2>
+
+@foreach (var i in Model)
+{
+    string teljesNev = i.Vezeteknev + " " + i.Keresztnev;
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="@Url.Action("Photo", "Manage", new { UserId = i.Id })" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title">@teljesNev</h4>
+
+            <p class="card-text">Some example text.</p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+    </div>
+}

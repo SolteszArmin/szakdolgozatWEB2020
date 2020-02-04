@@ -6,7 +6,7 @@
 }
 @if (!Model.Any())
 {
-
+    <h1>Még nincs hirdetésed kirakva :/</h1>
 }
 @foreach (var i in Model)
 {
@@ -15,29 +15,23 @@
         <div class="meta">
             <div class="photo" style="background-image: url(@Url.Action("Photo", "Manage", new { UserId = User.Identity.GetUserId() }))"></div>
             <ul class="details">
-                <li class="author"><a href="#">@teljesNev</a></li>
+                <li class="author">@teljesNev</li>
                 <li class="date">@DateTime.Parse(i.User.BirthDate.ToString()).ToShortDateString()</li>
                 <li class="tags">
-                    <ul>
-                        <li><a href="#">Learn</a></li>
-                        <li><a href="#">Code</a></li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                    </ul>
+                    @i.User.Varos
                 </li>
             </ul>
         </div>
         <div class="description">
-            <h1>Learning to Code</h1>
-            <h2>Opening a door to the future</h2>
+            <h1>@i.Nev</h1>
+            <h2>@i.Sport.Nev</h2>
             <p> @i.Leiras</p>
             <p class="read-more">
-                <a href="#">Read More</a>
+                @Html.ActionLink("Szerkesztés", "Edit", "Hirdetes", new { id = i.Id }, null)
+            </p>
+            <p class="deleteing">
+                @Html.ActionLink("Törlés", "Delete", "Hirdetes", new { id = i.Id }, null)
             </p>
         </div>
     </div>
 }
-
-
-
-

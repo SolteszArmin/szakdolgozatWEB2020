@@ -7,6 +7,6 @@ namespace Szakdoga.Models
 {
     public class HirdetesViewModel
     {
-        public SportHirdetes SportHirdetes { get; set; }
+        public List<SportHirdetes> Hirdeteslista { get; set; }
     }
 }

@@ -11,6 +11,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Hirdetes">Hírdetések</a>
             </li>
+            @if (User.IsInRole(Szakdoga.Models.Roles.User) || User.IsInRole(Szakdoga.Models.Roles.Admin))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Hirdetes/UjHirdetes">Új Hírdetés</a>
+                </li>
+            }
 
             @if (User.IsInRole(Szakdoga.Models.Roles.Admin))
             {

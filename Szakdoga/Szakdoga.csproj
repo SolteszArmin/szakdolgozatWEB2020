@@ -390,6 +390,7 @@
     <Content Include="Views\Hirdetes\Hirdeteseim.cshtml" />
     <Content Include="Views\Hirdetes\UjHirdetes.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
+    <Content Include="Views\Account\Felhasznalo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

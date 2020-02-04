@@ -4,6 +4,9 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+body {
+    background-color: #e0e0e0;
+}
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -107,9 +110,9 @@ margin-bottom:20px;
             content: "\f133";
         }
 
-        .blog-card .details .tags ul:before {
+        .blog-card .details .tags:before {
             font-family: FontAwesome;
-            content: "\f02b";
+            content: "\f238";
             margin-right: 10px;
         }
 
@@ -166,6 +169,30 @@ margin-bottom:20px;
                 }
 
                 .blog-card .description .read-more a:hover:after {
+                    margin-left: 5px;
+                    opacity: 1;
+                }
+
+        .blog-card .description .deleteing {
+            text-align: right;
+        }
+
+            .blog-card .description .deleteing a {
+                color: #9c0000;
+                display: inline-block;
+                position: relative;
+            }
+
+                .blog-card .description .deleteing a:after {
+                    content: "\f00d";
+                    font-family: FontAwesome;
+                    margin-left: -10px;
+                    opacity: 0;
+                    vertical-align: middle;
+                    transition: margin 0.3s, opacity 0.3s;
+                }
+
+                .blog-card .description .deleteing a:hover:after {
                     margin-left: 5px;
                     opacity: 1;
                 }

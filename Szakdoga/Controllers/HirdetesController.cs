@@ -87,7 +87,7 @@ namespace Szakdoga.Controllers
 
             _context.Hirdetesek.Remove(letezoHirdetes);
             _context.SaveChanges();
-            return RedirectToAction("index");
+            return RedirectToAction("Hirdeteseim");
         }
     }
 }

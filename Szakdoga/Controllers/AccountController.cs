@@ -20,11 +20,14 @@ namespace Szakdoga.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        readonly ApplicationDbContext _context;
+
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +39,9 @@ namespace Szakdoga.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -70,7 +73,7 @@ namespace Szakdoga.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            
+
 
             if (!ModelState.IsValid)
             {
@@ -124,7 +127,7 @@ namespace Szakdoga.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -155,7 +158,7 @@ namespace Szakdoga.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 HttpPostedFileBase Profile = Request.Files["ProfilePicture"];
 
                 byte[] image = new byte[Profile.ContentLength];
@@ -163,19 +166,26 @@ namespace Szakdoga.Controllers
 
 
 
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,BirthDate=model.SzulEv ,Vezeteknev=model.Vezeteknev,Keresztnev=model.Keresztnev,ProfilePicture=image,Varos=model.Varos};
+                var user = new ApplicationUser { UserName = model.Username,
+                    Email = model.Email,
+                    BirthDate = model.SzulEv,
+                    Vezeteknev = model.Vezeteknev,
+                    Keresztnev = model.Keresztnev,
+                    ProfilePicture = image,
+                    Varos = model.Varos,
+                    Leiras=model.Leiras};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    
+
 
                     var rs = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     var rm = new RoleManager<IdentityRole>(rs);
                     await rm.CreateAsync(new IdentityRole(Roles.Admin));
                     await UserManager.AddToRoleAsync(user.Id, Roles.Admin);
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -500,5 +510,12 @@ namespace Szakdoga.Controllers
             }
         }
         #endregion
+
+        public ActionResult Felhasznalo()
+        {
+            string userid = User.Identity.GetUserId();
+            var asd = _context.Users.Where(u => u.Id == userid);
+            return View("Felhasznalo", asd);
+        }
     }
 }

@@ -101,6 +101,9 @@ namespace Szakdoga.Models
         [Required]
         [Display(Name = "Város")]
         public string Varos { get; set; }
+        [Required]
+        [Display(Name = "Leírás")]
+        public string Leiras { get; set; }
     }
 
     public class ResetPasswordViewModel
