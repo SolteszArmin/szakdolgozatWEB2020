@@ -17,17 +17,17 @@
 
                     <div class="form-row">
                         <div class="col-6">
-                            @Html.LabelFor(m => m.User.Vezeteknev, new { @class = "control-label" })
+                            <label for="User.Vezeteknev">Vezetéknév</label>
                             @Html.TextBoxFor(m => m.User.Vezeteknev, new { @class = "form-control" })
                         </div>
                         <div class="col-6">
-                            @Html.LabelFor(m => m.User.Keresztnev, new { @class = "control-label" })
+                            <label for="User.Keresztnev">Keresztnév</label>
                             @Html.TextBoxFor(m => m.User.Keresztnev, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-6">
-                            @Html.LabelFor(m => m.User.UserName, new { @class = "control-label" })
+                            <label for="User.UserName">Felhasználónév</label>
                             @Html.TextBoxFor(m => m.User.UserName, new { @class = "form-control" })
                         </div>
                         <div class="col-6">
@@ -37,16 +37,16 @@
                     </div>
                     <div class="form-row">
                         <div class="col-6">
-                            @Html.LabelFor(m => m.User.BirthDate, new { @class = "control-label" })
+                            <label for="User.BirthDate">Születési dátum</label>
                             <input class="form-control" type="date" value="2011-08-19" id="User.BirthDate" name="User.BirthDate">
                         </div>
                         <div class="col-6">
-                            @Html.LabelFor(m => m.User.Varos, new { @class = "control-label" })
+                            <label for="User.Varos">Város</label>
                             @Html.TextBoxFor(m => m.User.Varos, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.User.Leiras, new { @class = "control-label" })
+                        <label for="User.Leiras">Leírás</label>
                         @Html.TextAreaFor(m => m.User.Leiras, new { @class = "form-control", @style = "max-width:1500px; min-width:100px; width:100%" })
                     </div>
                     <div class="form-group">
