@@ -4,32 +4,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{int counter = 1; }
-<div class="container">
-    <table class="table">
-        <thead class="thead-dark">
+
+<h1 class="text-center">Sportok</h1>
+<hr />
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Sportág</th>
-                <th scope="col">Sport Neve</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th>#</th>
+                <th>Sportág</th>
+                <th>Sport Neve</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
+
             @foreach (var f in Model)
             {
-                
-            <tr>
-                <th style="width:10%;" scope="row">@counter</th>
-                <td style="width:35%;">@f.Sportag.SportagNev</td>
-                <td style="width:35%;">@f.Nev</td>
-                <td style="width:10%;">@Html.ActionLink("Módosítás", "Edit", "SportAdd", new { id = f.Id }, new { @class = "btn btn-primary" })</td>
-                <td style="width:10%;">@Html.ActionLink("Törlés", "Delete", "SportAdd", new { id = f.Id }, new { @class = "btn btn-danger" })</td>
-            </tr>
+
+                <tr>
+                    <th style="width:10%;" scope="row">@counter</th>
+                    <td style="width:35%;">@f.Sportag.SportagNev</td>
+                    <td style="width:35%;">@f.Nev</td>
+                    <td style="width:10%;">@Html.ActionLink("Módosítás", "Edit", "SportAdd", new { id = f.Id }, new { @class = "btn btn-primary" })</td>
+                    <td style="width:10%;">@Html.ActionLink("Törlés", "Delete", "SportAdd", new { id = f.Id }, new { @class = "btn btn-danger" })</td>
+                </tr>
                 counter++;
             }
-
-        </tbody>
+        <tbody>
     </table>
 </div>
 

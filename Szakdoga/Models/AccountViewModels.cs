@@ -50,16 +50,16 @@ namespace Szakdoga.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Felhasználónév")]
         [DataType(DataType.Text)]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Jelszó")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Bejelentkezve maradok")]
         public bool RememberMe { get; set; }
     }
 

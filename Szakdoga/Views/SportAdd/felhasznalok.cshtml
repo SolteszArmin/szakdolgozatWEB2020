@@ -5,23 +5,23 @@
 }
 
 @{int counter = 1; }
-<h2>felhasznalok</h2>
-
-
-<div>
-    <table class="table">
-        <thead class="thead-dark">
+<h1 class="text-center">Felhasználók</h1>
+<hr />
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col">Felhasználónév</th>
-                <th scope="col">Email</th>
-                <th scope="col">Születési Dátum</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th>#</th>
+                <th>Név</th>
+                <th>Felhasználónév</th>
+                <th>Email</th>
+                <th>Születési Dátum</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
+
             @foreach (var f in Model)
             {
                 string teljesNev = f.Vezeteknev + " " + f.Keresztnev;
@@ -36,7 +36,7 @@
                 </tr>
                 counter++;
             }
-        </tbody>
+        <tbody>
     </table>
 </div>
 
