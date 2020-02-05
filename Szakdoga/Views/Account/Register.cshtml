@@ -2,107 +2,78 @@
 @{
     ViewBag.Title = "Register";
 }
+ 
+<div class="row h-100 justify-content-md-center">
+    <div class="col-md-12">
+        <div class="card bg-light w-50" style="margin:auto;">
+            <div class="card-header py-4 text-center"><h3><strong>Regisztráció</strong></h3></div>
+            <div class="card-body">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken() 
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-
-
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-{
-
-
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-
-
-
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Vezeteknev, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Vezeteknev, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Vezeteknev, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Vezeteknev, new { @class = "form-control" })
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Keresztnev, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Keresztnev, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Keresztnev, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Keresztnev, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.SzulEv, new { @class = "control-label" })
+                            <input class="form-control" type="date" value="2011-08-19" id="SzulEv" name="SzulEv">
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.Varos, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Varos, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
+                    <div class="form-group">
+                        <label for="Leiras">Leírás</label>
+                        <textarea class="form-control" id="Leiras" name="Leiras" rows="3" spellcheck="true" style="max-width:1500px; min-width:100px; width:100%"></textarea>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProfilePicture, new { @class = "control-label" })
+                        <div class="editor-field">
+                            <input name="ProfilePicture" id="ProfilePicture" data-val="true" data-val-required="A kép kötelező" type="file" />
+                        </div>
+                    </div>
+                    <div class="form-group">
 
-                    @Html.LabelFor(m => m.ProfilePicture, new { @class = "col-md-2 control-label" })
-                    <div class="editor-field">
-                        <input name="ProfilePicture" id="ProfilePicture" data-val="true" data-val-required="A kép kötelező" type="file" />
+                        <div class="row h-100 justify-content-md-center"> 
+                                <input class="btn btn-primary" type="submit" value="Regisztráció">
+                            </div> 
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.SzulEv, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        <input class="form-control" type="date" value="2011-08-19" id="SzulEv" name="SzulEv">
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Varos, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Varos, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="Leiras">Leírás</label>
-                    <textarea class="form-control" id="Leiras" name="Leiras" rows="3"></textarea>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="row h-100 justify-content-center align-items-center">
-            <div class="col">
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input class="btn btn-primary" type="submit" value="Regisztráció">
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
-
-
-
-
-}
-
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 

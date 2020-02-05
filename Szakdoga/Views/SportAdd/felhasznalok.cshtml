@@ -17,7 +17,6 @@
                 <th scope="col">Felhasználónév</th>
                 <th scope="col">Email</th>
                 <th scope="col">Születési Dátum</th>
-                <th scope="col">Értékelés</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -32,7 +31,6 @@
                     <td>@f.UserName</td>
                     <td>@f.Email</td>
                     <td>@f.BirthDate.ToString().AsDateTime().ToShortDateString()</td>
-                    <td>@f.Ertekeles</td>
                     <td style="width:10%;">@Html.ActionLink("Módosítás", "FelhaszaloEdit", "SportAdd", new { id = f.Id }, new { @class = "btn btn-primary" })</td>
                     <td style="width:10%;">@Html.ActionLink("Törlés", "DeleteUser", "SportAdd", new { id = f.Id }, new { @class = "btn btn-danger" })</td>
                 </tr>

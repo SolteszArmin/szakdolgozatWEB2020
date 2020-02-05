@@ -18,8 +18,14 @@ namespace Szakdoga.Controllers
         }
         public ActionResult Index()
         {
-            var Hirdetesek = _context.Hirdetesek.ToList();
-            return View("Index", Hirdetesek);
+            Korosztaly korosztaly = new Korosztaly();
+            var sportLista = _context.Sportok.ToList();
+            var korosztalyLista = korosztaly.korosztalyLista;
+
+            HirdetesAddViewModel model = new HirdetesAddViewModel();
+            model.Sport = sportLista;
+            model.KrosztalyLista = korosztalyLista;
+            return View("Index", model);
         }
         public ActionResult UjHirdetes()
         {
@@ -33,7 +39,7 @@ namespace Szakdoga.Controllers
 
             return View("ujHirdetes", model);
         }
-        public ActionResult Hirdeteseim() 
+        public ActionResult Hirdeteseim()
         {
             string currentUserId = User.Identity.GetUserId();
             var sajathirdetesek = _context.Hirdetesek.Where(u => u.UserId == currentUserId).ToList();
@@ -88,6 +94,21 @@ namespace Szakdoga.Controllers
             _context.Hirdetesek.Remove(letezoHirdetes);
             _context.SaveChanges();
             return RedirectToAction("Hirdeteseim");
+        }
+        public ActionResult _HirdetesSearch(int sportId=0,string korosztalyId="")
+        {
+            if (sportId==0||korosztalyId=="")
+            {
+
+                var Hirdetesek = _context.Hirdetesek.ToList();
+                return PartialView("_HirdetesSearch", Hirdetesek);
+            }
+            else
+            {
+                var Hirdetesek = _context.Hirdetesek.Where(h => h.sportId == sportId && h.Korosztaly == korosztalyId).ToList();
+                return PartialView("_HirdetesSearch", Hirdetesek);
+            }
+
         }
     }
 }

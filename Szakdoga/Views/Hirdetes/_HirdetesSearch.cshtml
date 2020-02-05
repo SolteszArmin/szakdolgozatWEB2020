@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Szakdoga.Models.SportHirdetes>
+@using Microsoft.AspNet.Identity;
+
+
+@if (!Model.Any())
+{
+    <h1>Még nincs hirdetés kirakva :/</h1>
+}
+else
+{
+    <div class="row h-100 align-content-center justify-content-center ">
+
+        @foreach (var i in Model)
+        {
+            string teljesNev = i.User.Vezeteknev + " " + i.User.Keresztnev;
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <div class="meta">
+                        <div class="photo" style="background-image: url(@Url.Action("Photo", "Manage", new { UserId = i.User.Id }))"></div>
+                        <ul class="details">
+                            <li class="author">
+                                @Html.ActionLink(teljesNev, "Felhasznalo", "Account", new { id = i.User.Id }, new { @class = "" })
+                            </li>
+                            <li class="date">@DateTime.Parse(i.User.BirthDate.ToString()).ToShortDateString()</li>
+                            <li class="tags">
+                                @i.User.Varos
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h1>@i.Nev</h1>
+                        <h2>@i.Sport.Nev</h2>
+                        <p> @i.Leiras</p>
+                        <p>Keresett Létszám: @i.SportoloLetszam</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
