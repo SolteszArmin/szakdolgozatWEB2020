@@ -4,83 +4,60 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>felhasznaloModosit</h2>
 
-@using (Html.BeginForm("Ujfelhasznalo", "SportAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
+<div class="row h-100 justify-content-md-center">
+    <div class="col-md-12">
+        <div class="card bg-light w-50" style="margin:auto;">
+            <div class="card-header py-4 text-center"><h3><strong>Felhasználó módosítása</strong></h3></div>
+            <div class="card-body">
+                @using (Html.BeginForm("Ujfelhasznalo", "SportAdd", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-
-    <h4>Create a new account.</h4>
-    <hr />
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.Vezeteknev, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.User.Vezeteknev, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.Vezeteknev, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.User.Vezeteknev, new { @class = "form-control" })
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.Keresztnev, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.User.Keresztnev, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.Keresztnev, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.User.Keresztnev, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.UserName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.User.UserName, new { @class = "form-control" })
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.Email, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.User.Email, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.User.Email, new { @class = "form-control" })
+                    <div class="form-row">
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.BirthDate, new { @class = "control-label" })
+                            <input class="form-control" type="date" value="2011-08-19" id="User.BirthDate" name="User.BirthDate">
+                        </div>
+                        <div class="col-6">
+                            @Html.LabelFor(m => m.User.Varos, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.User.Varos, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.User.UserName, new { @class = "form-control" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.User.Leiras, new { @class = "control-label" })
+                        @Html.TextAreaFor(m => m.User.Leiras, new { @class = "form-control", @style = "max-width:1500px; min-width:100px; width:100%" })
                     </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.BirthDate, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        <input class="form-control" type="date" value="2011-08-19" id="SzulEv" name="SzulEv">
+                    <div class="form-group">
+                        <div class="row h-100 justify-content-md-center">
+                            @Html.HiddenFor(m => m.User.Id)
+                            <input class="btn btn-primary" type="submit" value="Módosítás">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.Varos, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.User.Varos, new { @class = "form-control" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.User.Leiras, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(m => m.User.Leiras, new { @class = "form-control" })
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row h-100 justify-content-center align-items-center">
-            <div class="col">
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.HiddenFor(m => m.User.Id)
-                        @Html.AntiForgeryToken()
-                        <input class="btn btn-primary" type="submit" value="Módosítás">
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
-
-
-
-
-}
+</div>
 

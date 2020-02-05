@@ -85,7 +85,7 @@ namespace Szakdoga.Models
         [Display(Name ="Felhasználnév")]
         public string Username { get; set; }
         [Required]
-        [Display(Name ="Születésnap")]
+        [Display(Name ="Születési Dátum")]
         [DataType(DataType.Date)]
         public DateTime SzulEv { get; set; }
         [Required]
