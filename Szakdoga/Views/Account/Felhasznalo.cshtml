@@ -16,9 +16,13 @@
             <h4 class="card-title">@teljesNev</h4>
 
             <p class="card-text">@i.Leiras</p>
-            @if (User.Identity.GetUserId()==i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
+            @if (User.Identity.GetUserId() == i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
             {
                 @Html.ActionLink("Módosítás", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+            }
+            else
+            {
+                @Html.ActionLink("Kapcsolat felvétele", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
             }
         </div>
     </div>

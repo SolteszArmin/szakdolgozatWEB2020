@@ -4,29 +4,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row h-100 justify-content-md-center">
+    <div class="col-md-12">
+        <div class="card bg-light w-50" style="margin:auto;">
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="sportHirdetes.sportId">Sport</label>
+                        <select id="sportHirdetes.sportId" name="sportHirdetes.sportId" class="form-control">
+                            @foreach (var s in Model.Sport)
+                            {
+                                <option value="@s.Id">@s.Nev</option>
+                            }
+                        </select>
 
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sportHirdetes.Korosztaly">Keresett Korosztály</label>
+                        <select id="sportHirdetes.Korosztaly" name="sportHirdetes.Korosztaly" class="form-control">
+                            @foreach (var s in Model.KrosztalyLista)
+                            {
+                                <option value="@s">@s</option>
+                            }
+                        </select>
 
-
-<div class="form-group col-md-4">
-    <label for="sportHirdetes.sportId">Sport</label>
-    <select id="sportHirdetes.sportId" name="sportHirdetes.sportId" class="form-control">
-        @foreach (var s in Model.Sport)
-        {
-            <option value="@s.Id">@s.Nev</option>
-        }
-    </select>
-
-    <div class="form-group col-md-4">
-        <label for="inputState">Kereset Korosztály</label>
-        <select id="sportHirdetes.Korosztaly" name="sportHirdetes.Korosztaly" class="form-control">
-            @foreach (var s in Model.KrosztalyLista)
-            {
-                <option value="@s">@s</option>
-            }
-        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row h-100 justify-content-md-center">
+                <button onclick="Search()" type="button" class="btn btn-primary"><i class="fas fa-search"></i> Keresés</button>
+            </div>
+            <br/>
+        </div>
     </div>
 </div>
-<button onclick="Search()" type="button" class="btn btn-primary">Primary</button>
+
+<hr/>
+
 
 
 <div id="search_result">
