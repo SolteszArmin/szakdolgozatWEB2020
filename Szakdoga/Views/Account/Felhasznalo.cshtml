@@ -24,14 +24,19 @@
                     @if (User.Identity.GetUserId() == i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
                     {
                         @Html.ActionLink("Profil módosítása", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+
                         if (User.Identity.GetUserId() == i.Id)
                         {
                             <a href="/manage/changepassword" class="btn btn-primary" role="button">Jelszó megváltoztatása</a>
+                            <br /><br />
+                            <p>
+                                @Html.ActionLink("Hírdetésim megtekintése", "Hirdeteseim", "Hirdetes", new { id = i.Id }, new { @class = "btn btn-primary" })
+                            </p>
                         }
                     }
                     else
                     {
-                        @Html.ActionLink("Kapcsolat felvétele", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+                        <a href="mailto: @i.Email" target="_top" class="btn btn-primary">Kapcsolatfelvétel</a>
                     }
                 </div>
             </div>
