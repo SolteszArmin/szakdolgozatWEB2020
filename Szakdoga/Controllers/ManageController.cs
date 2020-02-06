@@ -238,7 +238,7 @@ namespace Szakdoga.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "Home");
             }
             AddErrors(result);
             return View(model);
@@ -333,6 +333,7 @@ namespace Szakdoga.Controllers
             base.Dispose(disposing);
         }
 
+        [AllowAnonymous]
         public FileContentResult Photo(string userId)
         {
             // get EF Database (maybe different way in your applicaiton)

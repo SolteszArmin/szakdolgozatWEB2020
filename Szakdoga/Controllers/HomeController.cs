@@ -18,8 +18,8 @@ namespace Szakdoga.Controllers
         }
         public ActionResult Index()
         {
-            var hirdetes = _context.Hirdetesek.ToList();
-            return View(hirdetes);
+            var Hirdetesek = _context.Hirdetesek.OrderByDescending(u => u.Id).Take(3).ToList();
+            return View("Index",Hirdetesek);
         }
 
         public ActionResult About()

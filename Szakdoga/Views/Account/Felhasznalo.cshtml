@@ -5,25 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Profile</h2>
 
 @foreach (var i in Model)
 {
     string teljesNev = i.Vezeteknev + " " + i.Keresztnev;
-    <div class="card" style="width:400px">
-        <img class="card-img-top" src="@Url.Action("Photo", "Manage", new { UserId = i.Id })" alt="Card image">
-        <div class="card-body">
-            <h4 class="card-title">@teljesNev</h4>
+    <div class="row h-100 align-content-center justify-content-center ">
+        <div class="col-12">
+            <div class="card" style="width:400px;margin:auto">
+                <img class="card-img-top" src="@Url.Action("Photo", "Manage", new { UserId = i.Id })" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">@teljesNev</h4>
+                    <p><i class="fas fa-calendar-alt"></i> @DateTime.Parse(i.BirthDate.ToString()).ToShortDateString()</p>
+                    <p><i class="fas fa-city"></i> @i.Varos</p>
+                    <hr />
+                    <p class="card-text">@i.Leiras</p>
 
-            <p class="card-text">@i.Leiras</p>
-            @if (User.Identity.GetUserId() == i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
-            {
-                @Html.ActionLink("Módosítás", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
-            }
-            else
-            {
-                @Html.ActionLink("Kapcsolat felvétele", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
-            }
+
+                    @if (User.Identity.GetUserId() == i.Id || User.IsInRole(Szakdoga.Models.Roles.Admin))
+                    {
+                        @Html.ActionLink("Profil módosítása", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+                        if (User.Identity.GetUserId() == i.Id)
+                        {
+                            <a href="/manage/changepassword" class="btn btn-primary" role="button">Jelszó megváltoztatása</a>
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Kapcsolat felvétele", "FelhaszaloEdit", "SportAdd", new { id = i.Id }, new { @class = "btn btn-primary" })
+                    }
+                </div>
+            </div>
         </div>
     </div>
 }
