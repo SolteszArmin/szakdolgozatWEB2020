@@ -480,4 +480,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="AfterBuild">
+    <MakeDir Directories="$(WebProjectOutputDir)\App_Data" />
+  </Target>
 </Project>
