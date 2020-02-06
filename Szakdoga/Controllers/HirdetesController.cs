@@ -51,6 +51,7 @@ namespace Szakdoga.Controllers
             {
                 sportHirdetes.UserId = User.Identity.GetUserId();
                 _context.Hirdetesek.Add(sportHirdetes);
+                TempData["result"] = "Sikeres Hírdetés Létrehozás";
             }
             else
             {
@@ -60,6 +61,7 @@ namespace Szakdoga.Controllers
                 letezoHirdetes.SportoloLetszam = sportHirdetes.SportoloLetszam;
                 letezoHirdetes.Korosztaly = sportHirdetes.Korosztaly;
                 letezoHirdetes.Leiras = sportHirdetes.Leiras;
+                TempData["result"] = "Sikeres Módosítás";
             }
             _context.SaveChanges();
             return RedirectToAction("index");
@@ -93,6 +95,7 @@ namespace Szakdoga.Controllers
 
             _context.Hirdetesek.Remove(letezoHirdetes);
             _context.SaveChanges();
+            TempData["result"] = "Sikeres Módosítás";
             return RedirectToAction("Hirdeteseim");
         }
         public ActionResult _HirdetesSearch(int sportId=0,string korosztalyId="")

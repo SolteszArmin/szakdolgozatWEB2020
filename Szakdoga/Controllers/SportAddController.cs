@@ -34,8 +34,8 @@ namespace Szakdoga.Controllers
                 letezoSport.sportagId = sport.sportagId;
             }
 
-            //TempData["name"] = "Test data";
             _context.SaveChanges();
+            TempData["result"] = "Sikeres Módosítás";
             return RedirectToAction("index");
         }
 
@@ -82,11 +82,13 @@ namespace Szakdoga.Controllers
 
             _context.Sportok.Remove(letezoSport);
             _context.SaveChanges();
+            TempData["result"] = "Sikeres Módosítás";
             return RedirectToAction("index");
         }
 
 
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Ujfelhasznalo(ApplicationUser user)
         {
             if (user.Id == null)
@@ -104,7 +106,16 @@ namespace Szakdoga.Controllers
 
             }
             _context.SaveChanges();
-            return RedirectToAction("felhasznalok");
+
+            TempData["result"] = "Sikeres Módosítás";
+            if (User.IsInRole(Roles.Admin))
+            {
+                return RedirectToAction("felhasznalok");
+            }
+            else 
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         public ActionResult DeleteUser(string id)
         {
@@ -117,9 +128,11 @@ namespace Szakdoga.Controllers
 
             _context.Users.Remove(letezoUser);
             _context.SaveChanges();
+
+            TempData["result"] = "Sikeres Módosítás";
             return RedirectToAction("felhasznalok");
         }
-
+        [AllowAnonymous]
         public ActionResult FelhaszaloEdit(string id)
         {
             if (id == null)

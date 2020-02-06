@@ -4,6 +4,14 @@
     ViewBag.Title = "Hirdeteseim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (TempData["result"] != null)
+{
+    <div>
+        <div class="alert alert-success" role="alert">
+            @TempData["result"]
+        </div>
+    </div>
+}
 @if (!Model.Any())
 {
     <h1>Még nincs hirdetésed kirakva :/</h1>

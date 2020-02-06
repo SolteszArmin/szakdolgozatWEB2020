@@ -15,9 +15,11 @@ namespace Szakdoga.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        readonly ApplicationDbContext _context;
 
         public ManageController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -238,6 +240,8 @@ namespace Szakdoga.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
+
+                TempData["result"] = "Sikeres Módosítás";
                 return RedirectToAction("Index", "Home");
             }
             AddErrors(result);

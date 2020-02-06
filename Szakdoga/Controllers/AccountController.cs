@@ -182,8 +182,8 @@ namespace Szakdoga.Controllers
 
                     var rs = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     var rm = new RoleManager<IdentityRole>(rs);
-                    await rm.CreateAsync(new IdentityRole(Roles.Admin));
-                    await UserManager.AddToRoleAsync(user.Id, Roles.Admin);
+                    await rm.CreateAsync(new IdentityRole(Roles.User));
+                    await UserManager.AddToRoleAsync(user.Id, Roles.User);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

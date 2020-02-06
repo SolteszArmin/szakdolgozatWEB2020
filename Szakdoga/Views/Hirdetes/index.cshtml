@@ -3,7 +3,14 @@
     ViewBag.Title = "index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@if (TempData["result"] != null)
+{
+    <div>
+        <div class="alert alert-success" role="alert">
+            @TempData["result"]
+        </div>
+    </div>
+}
 <div class="row h-100 justify-content-md-center">
     <div class="col-md-12">
         <div class="card bg-light w-50" style="margin:auto;">
@@ -34,12 +41,12 @@
             <div class="row h-100 justify-content-md-center">
                 <button onclick="Search()" type="button" class="btn btn-primary"><i class="fas fa-search"></i> Keresés</button>
             </div>
-            <br/>
+            <br />
         </div>
     </div>
 </div>
 
-<hr/>
+<hr />
 
 
 

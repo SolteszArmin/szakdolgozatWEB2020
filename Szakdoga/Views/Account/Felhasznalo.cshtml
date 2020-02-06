@@ -4,7 +4,14 @@
     ViewBag.Title = "Felhasznalo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@if (TempData["result"] != null)
+{
+    <div>
+        <div class="alert alert-success" role="alert">
+            @TempData["result"]
+        </div>
+    </div>
+}
 
 @foreach (var i in Model)
 {
