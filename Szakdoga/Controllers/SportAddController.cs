@@ -33,6 +33,8 @@ namespace Szakdoga.Controllers
                 letezoSport.Nev = sport.Nev;
                 letezoSport.sportagId = sport.sportagId;
             }
+
+            //TempData["name"] = "Test data";
             _context.SaveChanges();
             return RedirectToAction("index");
         }
@@ -54,7 +56,6 @@ namespace Szakdoga.Controllers
 
         public ActionResult Edit(int id)
         {
-
             if (id == 0)
             {
                 return HttpNotFound();

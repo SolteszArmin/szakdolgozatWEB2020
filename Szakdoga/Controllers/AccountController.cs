@@ -166,7 +166,8 @@ namespace Szakdoga.Controllers
 
 
 
-                var user = new ApplicationUser { UserName = model.Username,
+                var user = new ApplicationUser { 
+                    UserName = model.Username,
                     Email = model.Email,
                     BirthDate = model.SzulEv,
                     Vezeteknev = model.Vezeteknev,

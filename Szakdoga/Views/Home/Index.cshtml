@@ -47,62 +47,73 @@
     </a>
 
 </div>
+@*shadow p-3 mb-5 bg-white rounded*@
 
 
-<div class="container-fluid shadow p-3 mb-5 bg-white rounded"  style="margin-top:20px; width:95%">
-    <div class="row">
-        <div class="col-md-6 text-md-center" style="margin:auto;">
+
+
+
+
+<div class="container-fluid " style="margin-top:35px; width:95%">
+    <div class="row shadow p-3 mb-5 bg-white rounded*" style="width:20%; margin:auto;">
+
+        <div class="col-md-12 text-md-center" style="margin:auto;">
+            <h3>Az oldal célja</h3>
+        </div>
+        <div class="col-md-12">
+            Ezzel az oldallal azt akarom elérni, hogy azok emberek akik nem akarnak egyedfül sportolni, de nincs kivel megtalállják a sporttársukat.
+            Ezálltal a sportolás nem csak egy egyszerű köztevékenység lenne hanem baráti összejövetel.
+        </div>
+    </div>
+    <div class="row shadow p-3 mb-5 bg-white rounded*" style="width:50%; margin:auto; margin-top:40px;">
+        <div class="col-md-12 text-md-center" style="margin:auto;">
             <h3>Kiemelt Hirdetéseink</h3>
         </div>
-        <div class="col-md-6 text-md-center" style="margin:auto;">
+        <div class="col-md-12" style="max-height:400px; max-width:800px; overflow:auto;">
+            @if (!Model.Any())
+            {
+                <div class="text-center"><h1>Még nincs hirdetés kirakva <i class="fas fa-sad-tear"></i></h1></div>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6"  style="max-height:400px; max-width:1000px; overflow:auto;"> 
-                @if (!Model.Any())
-                {
-                    <div class="text-center"><h1>Még nincs hirdetés kirakva <i class="fas fa-sad-tear"></i></h1></div>
+            }
+            else
+            {
+                <div class="row">
 
-                }
-                else
-                {
-                    <div class="row">
-
-                        @foreach (var i in Model)
-                        {
-                            string teljesNev = i.User.Vezeteknev + " " + i.User.Keresztnev;
-                            <div class="blog-card bal" style="left:0; margin-left:10px;">
-                                <div class="meta">
-                                    <div class="photo" style="background-image: url(@Url.Action("Photo", "Manage", new { UserId = i.User.Id }))"></div>
-                                    <ul class="details">
-                                        <li class="author">
-                                            @Html.ActionLink(teljesNev, "Felhasznalo", "Account", new { id = i.User.Id }, new { @class = "" })
-                                        </li>
-                                        <li class="date">@DateTime.Parse(i.User.BirthDate.ToString()).ToShortDateString()</li>
-                                        <li class="tags">
-                                            @i.User.Varos
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="description">
-                                    <h1>@i.Nev</h1>
-                                    <h2>@i.Sport.Nev</h2>
-                                    <p> @i.Leiras</p>
-                                    <p>Keresett Létszám: @i.SportoloLetszam</p>
-                                </div>
+                    @foreach (var i in Model)
+                    {
+                        string teljesNev = i.User.Vezeteknev + " " + i.User.Keresztnev;
+                        <div class="blog-card bal" style="left:0; margin-left:30px;">
+                            <div class="meta">
+                                <div class="photo" style="background-image: url(@Url.Action("Photo", "Manage", new { UserId = i.User.Id }))"></div>
+                                <ul class="details">
+                                    <li class="author">
+                                        @Html.ActionLink(teljesNev, "Felhasznalo", "Account", new { id = i.User.Id }, new { @class = "" })
+                                    </li>
+                                    <li class="date">@DateTime.Parse(i.User.BirthDate.ToString()).ToShortDateString()</li>
+                                    <li class="tags">
+                                        @i.User.Varos
+                                    </li>
+                                </ul>
                             </div>
-                        }
-                    </div>
-                } 
+                            <div class="description">
+                                <h1>@i.Nev</h1>
+                                <h2>@i.Sport.Nev</h2>
+                                <p> @i.Leiras</p>
+                                <p>Keresett Létszám: @i.SportoloLetszam</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
         </div>
-        <div class="col-md-6">
-            loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum
-            loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum
-            loremipsum loremipsum loremipsum loremipsumloremipsum loremipsum
-        </div>
+
     </div>
 </div>
+
+
+
+
+
 <hr />
 <footer>
     <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
