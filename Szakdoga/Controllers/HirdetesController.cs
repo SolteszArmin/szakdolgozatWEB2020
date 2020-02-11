@@ -16,6 +16,7 @@ namespace Szakdoga.Controllers
         {
             _context = new ApplicationDbContext();
         }
+        [AllowAnonymous]
         public ActionResult Index()
         {
             Korosztaly korosztaly = new Korosztaly();
@@ -51,7 +52,7 @@ namespace Szakdoga.Controllers
             {
                 sportHirdetes.UserId = User.Identity.GetUserId();
                 _context.Hirdetesek.Add(sportHirdetes);
-                TempData["result"] = "Sikeres Hírdetés Létrehozás";
+                TempData["result"] = "Sikeres Hirdetés Létrehozás";
             }
             else
             {
@@ -98,6 +99,7 @@ namespace Szakdoga.Controllers
             TempData["result"] = "Sikeres Módosítás";
             return RedirectToAction("Hirdeteseim");
         }
+        [AllowAnonymous]
         public ActionResult _HirdetesSearch(int sportId=0,string korosztalyId="")
         {
             if (sportId==0||korosztalyId=="")

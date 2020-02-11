@@ -7,10 +7,10 @@ namespace Szakdoga.Models
 {
     public class Korosztaly
     {
-        const string gyerek = "6-13";
-        const string tini = "14-17";
-        const string felnott = "18-30";
-        const string idos = "31-50";
+        const string gyerek = "16-18";
+        const string tini = "19-25";
+        const string felnott = "26-40";
+        const string idos = "41-60";
 
         public List<string> korosztalyLista = new List<string>(4)
         {
